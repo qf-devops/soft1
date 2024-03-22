@@ -1,0 +1,66 @@
+    1  clear
+    2  pwd
+    3  sudo apt update && sudo apt install docker.io -y
+    4  which docker
+    5  docker
+    6  ps -ef|grep docker
+    7  systemctl status docker
+    8  docker 
+    9  docker images
+   10  ls -lrt /var/run/docker.sock
+   11  sudo chown ubuntu:ubuntu /var/run/docker.sock
+   12  sudo chown dockeruser:dockeruser /var/run/docker.sock
+   13  ls -lrt /var/run/docker.sock
+   14  docker images
+   15  docker ps
+   16  docker 
+   17  docker run --help
+   18  docker run -it ubuntu ls -lrt
+   19  docker ps 
+   20  docker ps --help
+   21  docker ps -a
+   22  docker run -it ubuntu ls -lrt
+   23  docker ps -a
+   24  docker run -it ubuntu pwd
+   25  docker run -it ubuntu bash
+   26  docker ps
+   27  docker ps -a
+   28  docker run -itd --name=u1 ubuntu
+   29  docker ps 
+   30  docker exec 
+   31  docker exec -it u1 pwd
+   32  docker exec -it u1 ls
+   33  docker exec -it u1 mvn --version
+   34  docker exec -it u1 apt update && apt install maven -y
+   35  docker exec -it u1 apt update 
+   36  docker exec -it u1 apt update && apt install maven -y
+   37  docker exec -it u1 apt install maven -y
+   38  docker exec -it u1 mvn --version
+   39  docker exec -it u1 bash
+   40  docke ps 
+   41  docker ps 
+   42  docker
+   43  docker commit --help
+   44  docker commit u1 maven:3.6.3
+   45  docker images
+   46  docker stop u1
+   47  docker rm u1
+   48  docker ps
+   49  docker ps -a
+   50  docker run -itd maven:3.6.3
+   51  docker ps
+   52  docker rename magical_bassi u1
+   53  docker ps
+   54  docker exec it u1 mvn --version
+   55  docker exec -it u1 mvn --version
+   56  docker push devopsjuly22017/maven:latest
+   57  docker images
+   58  docker
+   59  docker tag --help
+   60  docker tag maven:3.6.3 devopsjuly22017/maven:3.6.3
+   61  docker push devopsjuly22017/maven:3.6.3
+   62  docker
+   63  docker login --help
+   64  docker login
+   65  docker push devopsjuly22017/maven:3.6.3
+   66  history
