@@ -1,0 +1,12 @@
+---
+all:
+  hosts:
+    localhost:
+  vars:
+    ansible_connection: local
+  children:
+    webservers:
+      hosts:
+        172.31.35.177:
+      vars:
+        packagename: nginx 

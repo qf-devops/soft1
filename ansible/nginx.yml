@@ -1,0 +1,31 @@
+---
+- hosts: webservers
+  vars:
+  tasks:
+  - name: install nginx
+    apt:
+      name: "nginx"
+      state: latest
+  - name: create a directory
+    file:
+      name: /var/www/tutorial
+      state: directory 
+  - name: copy the index.html file
+    copy:
+      src: index.html
+      dest: /var/www/tutorial/index.html
+    notify: restart the nginx service
+  - name: copy the index.html file
+    copy:
+      src: tutorial
+      dest: /etc/nginx/sites-enabled/tutorial
+    notify: restart the nginx service
+  - name: start the nginx service
+    service:
+      name: nginx
+      state: started
+  handlers:
+  - name: restart the nginx service
+    service:
+      name: nginx
+      state: restarted
