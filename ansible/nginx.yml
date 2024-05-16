@@ -15,7 +15,7 @@
       src: index.html
       dest: /var/www/tutorial/index.html
     notify: restart the nginx service
-  - name: copy the index.html file
+  - name: copy the tutorial file
     copy:
       src: tutorial
       dest: /etc/nginx/sites-enabled/tutorial
