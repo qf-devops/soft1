@@ -1,18 +1,19 @@
 ---
 - hosts: webservers
   vars:
+    packagename: nginx
   tasks:
   - name: install nginx
     apt:
-      name: "nginx"
+      name: "{{ packagename }}"
       state: latest
   - name: create a directory
     file:
       name: /var/www/tutorial
       state: directory 
   - name: copy the index.html file
-    copy:
-      src: index.html
+    template:
+      src: index.html.j2
       dest: /var/www/tutorial/index.html
     notify: restart the nginx service
   - name: copy the tutorial file
@@ -22,10 +23,10 @@
     notify: restart the nginx service
   - name: start the nginx service
     service:
-      name: nginx
+      name: "{{ packagename }}"
       state: started
   handlers:
   - name: restart the nginx service
     service:
-      name: nginx
+      name: "{{ packagename }}"
       state: restarted
