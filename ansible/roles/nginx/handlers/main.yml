@@ -1,0 +1,5 @@
+  ---
+  - name: restart the nginx service
+    service:
+      name: "{{ packagename }}"
+      state: restarted

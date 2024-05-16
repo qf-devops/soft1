@@ -1,0 +1,23 @@
+---
+- name: install nginx
+  apt:
+    name: "{{ packagename }}"
+    state: latest
+- name: create a directory
+  file:
+    name: /var/www/tutorial
+    state: directory 
+- name: copy the index.html file
+  template:
+    src: index.html.j2
+    dest: /var/www/tutorial/index.html
+  notify: restart the nginx service
+- name: copy the tutorial file
+  copy:
+    src: tutorial
+    dest: /etc/nginx/sites-enabled/tutorial
+  notify: restart the nginx service
+- name: start the nginx service
+  service:
+    name: "{{ packagename }}"
+    state: started
